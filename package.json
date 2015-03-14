@@ -1,0 +1,24 @@
+{
+  "name": "exex_intro",
+  "version": "1.0.0",
+  "description": "## windows This needs to be run from a command prompt with *admin* privileges ```vagrant up```",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.11"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jofus101/exex_intro.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/jofus101/exex_intro/issues"
+  },
+  "homepage": "https://github.com/jofus101/exex_intro"
+}
