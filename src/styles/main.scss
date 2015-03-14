@@ -1,4 +1,4 @@
-// http://tympanus.net/codrops/2012/09/19/fullscreen-video-slideshow-with-bigvideo-js
+// http://tympanus.net/codrops/2012/09/19/fullscreen-video-slideshow-with-bigvideo-js/
 
 html, body {
   margin: 0;
@@ -59,31 +59,28 @@ header {
 }
 
 nav {
-    position:absolute; 
-    right: 5%; 
-    top: 45%; 
-    padding: 20px; 
-    background: #000; 
-    border-radius: 40px; 
-    opacity: .4; 
-    cursor: pointer;}
-    nav: hover {
+  position:absolute; 
+  right: 5%; 
+  top: 45%; 
+  padding: 20px; 
+  background: #000; 
+  border-radius: 40px; 
+  opacity: .4; 
+  cursor: pointer;
+  &:hover {
     opacity: .6;
+  }
 }
 
 .next-icon {
-    display: block;
-    border-top: solid 2px #fff; 
-    border-right: solid 2px #fff; 
-    width: 20px; 
-    height: 20px;
-    position: relative;
-    left: -5px;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-    color: #fff;
-    text-decoration: none;
+  display: block;
+  border-top: solid 2px #fff; 
+  border-right: solid 2px #fff; 
+  width: 20px; 
+  height: 20px;
+  position: relative;
+  left: -5px;
+  transform: rotate(45deg);
+  color: #fff;
+  text-decoration: none;
 }
