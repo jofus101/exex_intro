@@ -1,6 +1,6 @@
-# nodejs-vagrant-windows
+# Exex Intro
 
-# windows
+## windows
 This needs to be run from a command prompt with *admin* privileges
 ```vagrant up```
 
