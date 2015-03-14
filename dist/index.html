@@ -4,46 +4,41 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Experience Experience</title>
-      {{ "assets/css/app.css" | asset_url | stylesheet_tag }}
-      {{ "assets/css/general_foundicons.css" | asset_url | stylesheet_tag }}
+      <link rel="stylesheet" type="text/css" href="assets/css/main.css">
       <link href='http://fonts.googleapis.com/css?family=Economica|Muli' rel='stylesheet' type='text/css'>
-      <script src="{{ "modernizr.js" | asset_url }}"></script>
   </head>
   <body>
-    {% block content %}{% endblock %}
-    {% include "scripts" %}
+    <header>
+        <h1>Fullscreen Video Slideshow <span>with BigVideo.js</span></h1>
+        <p>The videos in this demo are from <a href="http://beachfrontprod.blogspot.com" target="_blank">Beachfront B-Roll</a>, a great place to download unique HD stock video footage and animated backgrounds for any production purpose (for free!).</p>
+        <p><small>A demo for</small> <a href="http://dfcb.github.com/BigVideo.js/" target="_blank">BigVideo.js</a> <small>by <a href="http://twitter.com/johnpolacek" target="_blank" rel="author">@johnpolacek</a></small></p>
+    </header>
+
+    <div class="wrapper">
+        <div class="screen" id="screen-1" data-video="vid/bird.mp4">
+            <img src="img/bird.jpg" class="big-image" />
+            <h1 class="video-title">#1 Bird</h1>
+        </div>
+        <div class="screen" id="screen-2" data-video="vid/satellite.mp4">
+            <img src="img/satellite.jpg" class="big-image" />
+            <h1 class="video-title">#2 Satellite</h1>
+        </div>
+        <div class="screen" id="screen-3" data-video="vid/camera.mp4">
+            <img src="img/camera.jpg" class="big-image" />
+            <h1 class="video-title">#3 Camera</h1>
+        </div>
+        <div class="screen" id="screen-4" data-video="vid/spider.mp4">
+            <img src="img/spider.jpg" class="big-image" />
+            <h1 class="video-title">#4 Spider</h1>
+        </div>
+        <div class="screen" id="screen-5" data-video="vid/dandelion.mp4">
+            <img src="img/dandelion.jpg" class="big-image" />
+            <h1 class="video-title">#5 Dandelion</h1>
+        </div>
+    </div>
+
+    <nav id="next-btn">
+        <a href="#" class="next-icon"></a>
+    </nav>
   </body>
 </html>
-
-<header>
-    <h1>Fullscreen Video Slideshow <span>with BigVideo.js</span></h1>
-    <p>The videos in this demo are from <a href="http://beachfrontprod.blogspot.com" target="_blank">Beachfront B-Roll</a>, a great place to download unique HD stock video footage and animated backgrounds for any production purpose (for free!).</p>
-    <p><small>A demo for</small> <a href="http://dfcb.github.com/BigVideo.js/" target="_blank">BigVideo.js</a> <small>by <a href="http://twitter.com/johnpolacek" target="_blank" rel="author">@johnpolacek</a></small></p>
-</header>
-
-<div class="wrapper">
-    <div class="screen" id="screen-1" data-video="vid/bird.mp4">
-        <img src="img/bird.jpg" class="big-image" />
-        <h1 class="video-title">#1 Bird</h1>
-    </div>
-    <div class="screen" id="screen-2" data-video="vid/satellite.mp4">
-        <img src="img/satellite.jpg" class="big-image" />
-        <h1 class="video-title">#2 Satellite</h1>
-    </div>
-    <div class="screen" id="screen-3" data-video="vid/camera.mp4">
-        <img src="img/camera.jpg" class="big-image" />
-        <h1 class="video-title">#3 Camera</h1>
-    </div>
-    <div class="screen" id="screen-4" data-video="vid/spider.mp4">
-        <img src="img/spider.jpg" class="big-image" />
-        <h1 class="video-title">#4 Spider</h1>
-    </div>
-    <div class="screen" id="screen-5" data-video="vid/dandelion.mp4">
-        <img src="img/dandelion.jpg" class="big-image" />
-        <h1 class="video-title">#5 Dandelion</h1>
-    </div>
-</div>
-
-<nav id="next-btn">
-    <a href="#" class="next-icon"></a>
-</nav>
