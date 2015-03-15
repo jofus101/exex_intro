@@ -4,6 +4,8 @@
 
 var gulp = require('gulp'),
 //    sass = require('gulp-ruby-sass'),
+    mainBowerFiles = require('main-bower-files'),
+    filter = require('gulp-filter')
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
@@ -48,17 +50,37 @@ gulp.task('scripts', function() {
     .pipe(concat('main.js'))
     .pipe(gulp.dest('dist/assets/js'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
+    .pipe(uglify()
+      .on('error', function(e) { 
+        console.log('\x07',e.message);
+        return this.end(); 
+      }))
     .pipe(gulp.dest('dist/assets/js'))
     .pipe(notify({ message: 'Scripts task complete' }));
 });
+
+// http://andy-carter.com/blog/a-beginners-guide-to-package-manager-bower-and-using-gulp-to-manage-components
+gulp.task('bowerjs', function(){
+  return gulp.src(mainBowerFiles())
+  .pipe(filter('*.js'))
+  .pipe(concat('bower.js'))
+  .pipe(gulp.dest('dist/assets/js'))
+  .pipe(rename({suffix: '.min'}))
+  .pipe(uglify()
+    .on('error', function(e) { 
+      console.log('\x07',e.message);
+      return this.end(); 
+    }))
+  .pipe(gulp.dest('dist/assets/js'))
+
+})
 
 gulp.task('clean', function(cb) {
     del(['dist/assets/css', 'dist/assets/js', 'dist/assets/img'], cb)
 });
 
 gulp.task('default', ['clean'], function() {
-  gulp.start('copy', 'styles', 'scripts', 'images');
+  gulp.start('copy', 'styles', 'scripts', 'images', 'bowerjs');
 });
 
 gulp.task('watch', function() {
