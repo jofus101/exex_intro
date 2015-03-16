@@ -1,16 +1,40 @@
-// Shorthand for $( document ).ready()
+"use strict";
 
+// Shorthand for $( document ).ready()
 $(function() {
 
-    console.log("hello world");
-    $('#next-btn').on('click', function(e) {
-      alert("clicked");
-      // e.preventDefault();
-      // if (!isTransitioning) {
-      //     next();
-      // }
-    });
+  var screenIndex = 1,
+  numScreens = $('.screen').length,
+  isTransitioning = false,
+  transitionDur = 1000;
 
+  console.log('hello world');
+  $('#next-btn').on('click', function(e) {
+    alert('clicked');
+    e.preventDefault();
+    if (!isTransitioning) {
+      next();
+    }
+  });
+
+  function next() {
+    isTransitioning = true;
+  // update video index
+  if (screenIndex === numScreens) {
+    screenIndex = 1;
+  } else {
+    screenIndex++;
+  }
+
+  $('.wrapper').transit(
+    {'left':'-'+(100*(screenIndex-1))+'%'},
+    transitionDur,
+    onTransitionComplete);
+  }
+
+  function onTransitionComplete() {
+    isTransitioning = false;
+  }
 
   // Use Modernizr to detect for touch devices, 
   // which don't support autoplay and may have less bandwidth, 
