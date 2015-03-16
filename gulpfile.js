@@ -32,6 +32,11 @@ gulp.task('images', function() {
   .pipe(gulp.dest('dist/assets/img'))
 });
 
+gulp.task('videos', function() {
+  return gulp.src('src/vid/**/*')
+  .pipe(gulp.dest('dist/assets/vid'))
+});
+
 gulp.task('styles', function() {
   return gulp.src('src/styles/*.scss')
     .pipe(sass({errLogToConsole: true}))
@@ -93,6 +98,9 @@ gulp.task('watch', function() {
 
   // Watch image files
   gulp.watch('src/img/**/*', ['images']);
+
+  // Watch image files
+  //gulp.watch('src/vid/**/*', ['videos']);
 
   // Watch html and base files
   gulp.watch('src/*.html', ['copy']);
