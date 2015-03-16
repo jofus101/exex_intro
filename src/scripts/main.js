@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // Shorthand for $( document ).ready()
 $(function() {
@@ -10,7 +10,6 @@ $(function() {
 
   console.log('hello world');
   $('#next-btn').on('click', function(e) {
-    alert('clicked');
     e.preventDefault();
     if (!isTransitioning) {
       next();
