@@ -5,3 +5,4 @@ puphpet/files/dot/ssh
 !puphpet/files/dot/ssh/insecure_private_key
 node_modules
 dist
+src/vid
