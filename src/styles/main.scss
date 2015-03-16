@@ -1,5 +1,9 @@
 // http://tympanus.net/codrops/2012/09/19/fullscreen-video-slideshow-with-bigvideo-js/
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
