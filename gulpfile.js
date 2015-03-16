@@ -66,11 +66,11 @@ gulp.task('bowerjs', function(){
   .pipe(concat('bower.js'))
   .pipe(gulp.dest('dist/assets/js'))
   .pipe(rename({suffix: '.min'}))
-  .pipe(uglify()
-    .on('error', function(e) { 
-      console.log('\x07',e.message);
-      return this.end(); 
-    }))
+  .pipe(uglify())
+  .on('error', function(e) { 
+    console.log('\x07',e.message);
+    return this.end(); 
+  })
   .pipe(gulp.dest('dist/assets/js'))
 
 })
