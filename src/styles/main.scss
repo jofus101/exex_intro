@@ -31,9 +31,6 @@ header {
   h1, p {
     opacity: 0;
     transition: 1.8s opacity ease-out;
-    &.visible {
-      opacity: 1;
-    }
   }
 }
 
@@ -71,10 +68,15 @@ nav {
   padding: 20px; 
   background: #000; 
   border-radius: 40px; 
-  opacity: .4; 
+  opacity: 0; 
   cursor: pointer;
+  transition: 1.8s opacity ease-out;
+  
   &:hover {
     opacity: .6;
+  }
+  &.visible {
+    opacity: .4;
   }
 }
 

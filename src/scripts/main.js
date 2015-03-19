@@ -77,7 +77,7 @@ $(function() {
         .css('left',0);
       showVideo();    
     }
-    fadeInHeader();
+    fadeInElements();
   }
 
   function adjustImagePositioning() {
@@ -114,14 +114,21 @@ $(function() {
   }
 
   // Fade in the text
-  function fadeInHeader() {
-    var delayTime = 3000;
-    $('#screen-'+screenIndex+' header').children().each(function (i) {
-      $(this).delay(i*delayTime).fadeTo(2000, 1);
-    });  
+  function fadeInElements() {
+    var delayTime = 2000;
+    var i = 0;
+    var $screenHeaderChildren = $('#screen-'+screenIndex+' header').children();
+    $screenHeaderChildren.each(function () {
+      $(this).delay(i*delayTime).fadeTo(200, 1);
+      i++;
+    });
+    $screenHeaderChildren.promise().done(function() {
+      $('#next-btn').fadeTo(700, 0.4);
+    });
+    
   }
   // fade in the first screen header automagically
   // the rest will fade in on the next button
-  fadeInHeader();
+  fadeInElements();
 
 });
