@@ -73,6 +73,7 @@ $(function() {
         .css('left',0);
       showVideo();    
     }
+    fadeInHeader();
   }
 
   function adjustImagePositioning() {
@@ -109,9 +110,14 @@ $(function() {
   }
 
   // Fade in the text
-  var delayTime = 3000;
-  $('header').children().each(function (i) {
-    $(this).delay(i*delayTime).fadeTo(2000, 1);
-  });
+  function fadeInHeader() {
+    var delayTime = 3000;
+    $('#screen-'+screenIndex+' header').children().each(function (i) {
+      $(this).delay(i*delayTime).fadeTo(2000, 1);
+    });  
+  }
+  // fade in the first screen header automagically
+  // the rest will fade in on the next button
+  fadeInHeader();
 
 });

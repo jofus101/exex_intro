@@ -30,7 +30,7 @@ header {
   background: rgba(0,0,0,0.5);
   h1, p {
     opacity: 0;
-    transition: 1.8s opacity;
+    transition: 1.8s opacity ease-out;
     &.visible {
       opacity: 1;
     }
