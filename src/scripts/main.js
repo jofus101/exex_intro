@@ -98,5 +98,12 @@ $(function() {
             top     : ( windowHeight - newHeight ) / 2
         });
     });
-  }   
+  }
+
+  // Fade in the text
+  var delayTime = 3000;
+  $('header').children().each(function (i) {
+    $(this).delay(i*delayTime).fadeTo(2000, 1);
+  });
+
 });
