@@ -37,16 +37,20 @@ $(function() {
 
   function next() {
     isTransitioning = true;
+
+    // Clean up old page stuff
+    $('#next-btn').fadeOut(100);
+
     // update video index, reset image opacity if starting over
     if (screenIndex === numScreens) {
-      $bigImage.css('opacity', 1)
+      $bigImage.css('opacity', 1);
       screenIndex = 1;
     } else {
       screenIndex++;
     }
 
     if (!isTouch) {
-      $('#big-video-wrap').transit({'left':'-100%'},transitionDur)
+      $('#big-video-wrap').transit({'left':'-100%'},transitionDur);
     }
 
     //cute ternary Modernizer operator
