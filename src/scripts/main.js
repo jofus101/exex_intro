@@ -37,21 +37,29 @@ $(function() {
 
   function next() {
     isTransitioning = true;
-    // update video index
+    // update video index, reset image opacity if starting over
     if (screenIndex === numScreens) {
+      $bigImage.css('opacity', 1)
       screenIndex = 1;
     } else {
       screenIndex++;
     }
 
-    $('.wrapper').transit(
-      {'left':'-'+(100*(screenIndex-1))+'%'},
-      transitionDur,
-      onTransitionComplete);
+    if (!isTouch) {
+      $('#big-video-wrap').transit({'left':'-100%'},transitionDur)
+    }
+
+    //cute ternary Modernizer operator
+    (Modernizr.csstransitions)?
+      $('.wrapper').transit(
+        {'left':'-'+(100*(screenIndex-1))+'%'},
+        transitionDur,
+        onTransitionComplete):
+      onTransitionComplete();
   }
 
   function onVideoLoaded() {
-    $('#screen-'+screenIndex).find('.big-image').transit({'opacity':0},200);
+    $('#screen-'+screenIndex).find('.big-image').transit({'opacity':0},500);
   }
 
   function showVideo() {
