@@ -75,28 +75,28 @@ $(function() {
       img.src = $img.attr('src');
 
       var windowWidth = $window.width(),
-            windowHeight = $window.height(),
-            windowRatio = windowHeight / windowWidth,
-            imageWidth = img.width,
-            imageHeight = img.height,
-            imageRatio = imageHeight / imageWidth,
-            newWidth, newHeight; // new_left, new_top;
+        windowHeight = $window.height(),
+        windowRatio = windowHeight / windowWidth,
+        imageWidth = img.width,
+        imageHeight = img.height,
+        imageRatio = imageHeight / imageWidth,
+        newWidth, newHeight; // new_left, new_top;
 
-        if( windowRatio > imageRatio ) {
-            newHeight   = windowHeight;
-            newWidth   = windowHeight / imageRatio;
-        }
-        else {
-            newHeight   = windowWidth * imageRatio;
-            newWidth   = windowWidth;
-        }
+      if( windowRatio > imageRatio ) {
+        newHeight   = windowHeight;
+        newWidth   = windowHeight / imageRatio;
+      }
+      else {
+        newHeight   = windowWidth * imageRatio;
+        newWidth   = windowWidth;
+      }
 
-        $img.css({
-            width   : newWidth,
-            height  : newHeight,
-            left    : ( windowWidth - newWidth ) / 2,
-            top     : ( windowHeight - newHeight ) / 2
-        });
+      $img.css({
+        width   : newWidth,
+        height  : newHeight,
+        left    : ( windowWidth - newWidth ) / 2,
+        top     : ( windowHeight - newHeight ) / 2
+      });
     });
   }
 
