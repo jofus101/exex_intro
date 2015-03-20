@@ -39,9 +39,9 @@ $(function() {
     isTransitioning = true;
 
     // Clean up old page stuff
-    $('#next-btn').fadeOut(10);
+    $('#next-btn').removeClass('visible');
     $('#screen-'+screenIndex+' header').children().each(function () {
-      $(this).fadeOut(10);
+      $(this).removeClass('visible');
     });
 
 
