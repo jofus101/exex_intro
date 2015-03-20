@@ -6,3 +6,4 @@ puphpet/files/dot/ssh
 node_modules
 dist
 src/vid
+ref
