@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 //    imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
+    //notify = require('gulp-notify'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
     del = require('del');
@@ -44,8 +44,8 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('dist/assets/css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gulp.dest('dist/assets/css'))
-    .pipe(notify({ message: 'Styles task complete' }));
+    .pipe(gulp.dest('dist/assets/css'));
+    //.pipe(notify({ message: 'Styles task complete' }));
 });
 
 gulp.task('scripts', function() {
@@ -60,8 +60,8 @@ gulp.task('scripts', function() {
         console.log('\x07',e.message);
         return this.end(); 
       }))
-    .pipe(gulp.dest('dist/assets/js'))
-    .pipe(notify({ message: 'Scripts task complete' }));
+    .pipe(gulp.dest('dist/assets/js'));
+    //.pipe(notify({ message: 'Scripts task complete' }));
 });
 
 // http://andy-carter.com/blog/a-beginners-guide-to-package-manager-bower-and-using-gulp-to-manage-components
