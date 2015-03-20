@@ -29,6 +29,7 @@ header {
   color: #fff;  
   .copy {
     opacity: 0;
+    filter: alpha(opacity=0);
     transition: all 1500ms ease-in-out,font-size 1ms;
     &.visible {
       transform: scale(1.0125);
@@ -79,13 +80,12 @@ nav {
   border-radius: 40px; 
   opacity: 0; 
   cursor: pointer;
-  transition: 1.8s opacity ease-out;
-  
-  &:hover {
-    opacity: .6;
-  }
+  transition: 0.8s opacity ease-in-out;    
   &.visible {
     opacity: .4;
+    &:hover {
+      opacity: .6;
+    }
   }
 }
 
