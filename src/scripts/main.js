@@ -119,49 +119,30 @@ $(function() {
 
   // Fade in the text
   function fadeInElements() {
-    var delayTime = 2000;
-    // var i = 0;
+    var delayTime = 1500;
     var $screenHeader = $('#screen-'+screenIndex+' header');
-    console.log('first queue: ' + $screenHeader.queue());
-
+    
     $screenHeader.queue(function () {
       $screenHeader.find('.copy:nth-child(1)').addClass('visible');
       $(this).dequeue();
     })
-    .delay(1500)
+    .delay(delayTime)
     .queue(function () {
       $screenHeader.find('.copy:nth-child(2)').addClass('visible');
       $(this).dequeue();
     })
-    .delay(1500)
+    .delay(delayTime)
     .queue(function () {
       $screenHeader.find('.copy:nth-child(3)').addClass('visible');
       $(this).dequeue();
     })
-    .delay(1500);
-
-    // $screenHeader.children().each(function (i) {
-    //   $screenHeader.queue(function() {
-    //     $(this).addClass('visible');
-    //     $screenHeader.dequeue();
-    //   });
-
-      //$(this).delay(i*delayTime).fadeTo(200, 1);
-      //i++;
-    //});
+    .delay(delayTime);
 
     console.log($screenHeader.queue());
 
-    // f.each(function(i) {
-    //   a.queue("headingQueue", function() {
-    //     a.find(".landing__copy:nth-child(" + (i + 1) + ")").addClass("landing__copy--visible"), a.dequeue("headingQueue")
-    //   }).delay(1e3, "headingQueue")
-    // })
-
-
-    // $screenHeaderChildren.promise().done(function() {
-    //   $('#next-btn').fadeTo(700, 0.4);
-    // });
+    $screenHeader.promise().done(function() {
+      $('#next-btn').addClass('visible');
+    });
     
   }
   // fade in the first screen header automagically
