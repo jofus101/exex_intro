@@ -39,7 +39,11 @@ $(function() {
     isTransitioning = true;
 
     // Clean up old page stuff
-    $('#next-btn').fadeOut(100);
+    $('#next-btn').fadeOut(10);
+    $('#screen-'+screenIndex+' header').children().each(function () {
+      $(this).fadeOut(10);
+    });
+
 
     // update video index, reset image opacity if starting over
     if (screenIndex === numScreens) {
