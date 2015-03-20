@@ -54,13 +54,13 @@ $(function() {
     }
 
     if (!isTouch) {
-      $('#big-video-wrap').transit({'left':'-100%'},transitionDur);
+      $('#big-video-wrap').transit({'top':'-100%'},transitionDur);
     }
 
     //cute ternary Modernizer operator
     (Modernizr.csstransitions)?
       $('.wrapper').transit(
-        {'left':'-'+(100*(screenIndex-1))+'%'},
+        {'top':'-'+(100*(screenIndex-1))+'%'},
         transitionDur,
         onTransitionComplete):
       onTransitionComplete();
@@ -78,7 +78,7 @@ $(function() {
     isTransitioning = false;
     if (!isTouch) {
       $('#big-video-wrap')
-        .css('left',0);
+        .css('top',0);
       showVideo();    
     }
     fadeInElements();
