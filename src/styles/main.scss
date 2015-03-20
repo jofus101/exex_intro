@@ -27,9 +27,15 @@ header {
   left: 5%;
   z-index: 999;
   color: #fff;  
-  h1, p {
+  .copy {
     opacity: 0;
-    transition: 1.8s opacity ease-out;
+    transition: all 1500ms ease-in-out,font-size 1ms;
+    &.visible {
+      transform: scale(1.0125);
+      transform-origin: center center;
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
   }
 }
 
