@@ -17,14 +17,20 @@ var gulp = require('gulp'),
     //notify = require('gulp-notify'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
-    del = require('del');
+    del = require('del'),
+    merge = require('merge-stream');
 //    browserSync = require('browser-sync'),
 //    reload = browserSync.reload;
 
 // copy the html files
 gulp.task('copy', function() {
-  return gulp.src('src/*.html')
-  .pipe(gulp.dest('dist'))
+  var htmlStream = gulp.src('src/*.html')
+  .pipe(gulp.dest('dist'));
+
+  var bvjsStream = gulp.src('src/bv_js/*.js')
+  .pipe(gulp.dest('dist/assets/bv_js'));
+
+  return merge(htmlStream, bvjsStream);
 });
 
 gulp.task('images', function() {
