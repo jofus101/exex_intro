@@ -136,6 +136,11 @@ $(function() {
       $screenHeader.find('.copy:nth-child(3)').addClass('visible');
       $(this).dequeue();
     })
+    .delay(delayTime)
+    .queue(function () {
+      $screenHeader.find('.copy:nth-child(4)').addClass('visible');
+      $(this).dequeue();
+    })
     .delay(delayTime);
 
     console.log($screenHeader.queue());
