@@ -30,7 +30,10 @@ gulp.task('copy', function() {
   var bvjsStream = gulp.src('src/bv_js/*.js')
   .pipe(gulp.dest('dist/assets/bv_js'));
 
-  return merge(htmlStream, bvjsStream);
+  var fontStream = gulp.src('src/fonts/*.*')
+  .pipe(gulp.dest('dist/assets/fonts'));
+
+  return merge(htmlStream, bvjsStream, fontStream);
 });
 
 gulp.task('images', function() {
