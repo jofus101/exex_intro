@@ -23,10 +23,13 @@ var gulp = require('gulp'),
 //    reload = browserSync.reload;
 
 // copy the html files
-gulp.task('copy', function() {
-  var htmlStream = gulp.src('src/*.html')
+gulp.task('copyHtml', function() {
+  return gulp.src('src/*.html')
   .pipe(gulp.dest('dist'));
+});
 
+
+gulp.task('copyMisc', function() {  
   var bvjsStream = gulp.src('src/bv_js/*.js')
   .pipe(gulp.dest('dist/assets/bv_js'));
 
@@ -94,11 +97,11 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('default', function() {
-  gulp.start('copy', 'styles', 'scripts');
+  gulp.start('copyHtml', 'styles', 'scripts');
 });
 
 gulp.task('rebuild', ['clean'], function() {
-  gulp.start('copy', 'styles', 'scripts', 'images', 'bowerjs');
+  gulp.start('copyHtml', 'copyMisc', 'styles', 'scripts', 'images', 'bowerjs');
 });
 
 gulp.task('watch', function() {
@@ -116,7 +119,7 @@ gulp.task('watch', function() {
   //gulp.watch('src/vid/**/*', ['videos']);
 
   // Watch html and base files
-  gulp.watch('src/*.html', ['copy']);
+  gulp.watch('src/*.html', ['copyHtml']);
 
   // Create LiveReload server
   livereload.listen();
