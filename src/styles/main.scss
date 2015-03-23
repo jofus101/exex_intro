@@ -26,7 +26,8 @@ header {
   top: 5%;
   left: 5%;
   z-index: 999;
-  color: #fff;  
+  color: #fff;
+  max-width: 70%;
   .copy {
     opacity: 0;
     filter: alpha(opacity=0);
@@ -100,4 +101,86 @@ nav {
   transform: rotate(45deg);
   color: #fff;
   text-decoration: none;
+}
+
+$success-color: #339B65;
+$error-color: #ED3232;
+
+@mixin email-form-basics {
+  background: transparent;
+  border:2px solid #FFF;
+  height:4rem;
+  line-height:4rem;
+  font-size:16px;
+  font-size:1rem;
+}
+
+.email-center {
+  width: 88%;
+  text-align: center;
+}
+
+.form-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-top: 11rem;
+
+  .email-input {
+    @include email-form-basics;
+    float: left;
+    outline:none;
+    padding:0 1em;
+    width:22rem;
+    transition: all 180ms ease-in-out;
+    &:focus {
+      background:$primary-color;
+      color:#292C30;
+      width:25rem;
+      &+.email-form-submit {
+        width:5rem;
+        &:hover, &:focus, &:active {
+          background: $success-color;
+          // color:#FFF;
+          cursor:pointer;
+        }
+      }
+    }
+    &.error+.email-form-submit {
+      background: $error-color;
+      .icon {
+        display:none;
+        &.foundicon-remove {
+          display: inline;
+        }
+      }
+    }
+    &.success+.email-form-submit {
+      background: $success-color;
+      .icon {
+        display:none;
+        &.foundicon-checkmark {
+          display: inline;
+        }
+      }
+    }
+    &::-ms-clear {
+      display: none;
+    }
+  }
+
+  .email-form-submit {
+    @include email-form-basics;
+    color:$primary-color;
+    border-left:none;
+    text-align:center;
+    width:8rem;
+    -webkit-appearance:none;
+    font-size:24px;
+    font-size:1.5rem;
+    @include transition(all 180ms ease-out);
+    position:absolute;
+    .foundicon-remove, .foundicon-checkmark {
+      display: none;
+    }
+  }
 }
