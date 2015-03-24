@@ -1,3 +1,4 @@
+/* global Firebase: false */
 'use strict';
 
 // Shorthand for $( document ).ready()
