@@ -172,6 +172,9 @@ $button-focus-width: 5rem;
       &::-ms-clear {
         display: none;
       }
+      &:invalid {
+        box-shadow: none;
+      }
     }
 
     .email-form-submit {
