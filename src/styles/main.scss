@@ -122,19 +122,18 @@ $button-focus-width: 5rem;
 }
 
 .email-center {
-  width: 88%;
-  z-index: 9999;
+  width: 100%;
+  margin-top: 5em;
+  //top: 65%;
+  position: relative;
 
   .form-wrapper {
     margin: 0 auto;
-    //display: inline-block;
     position: relative;
     width: $input-width + $button-width;
-    z-index: 9999;
 
     .email-input {
       @include email-form-basics;
-      //float: left;
       outline:none;
       padding:0 1em;
       width:$input-width;
