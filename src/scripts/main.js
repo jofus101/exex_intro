@@ -4,49 +4,16 @@
 var screenIndex = 1,
 util = {  
   fadeInElements: function () {    
-    var delayTime = 1500;
-    var $screenHeader = $('#screen-'+screenIndex+' header');
-    
-    $screenHeader.queue(function () {
-      $screenHeader.find('.copy:nth-child(1)').addClass('visible');
-      $(this).dequeue();
-    })
-    .delay(delayTime)
-    .queue(function () {
-      $screenHeader.find('.copy:nth-child(2)').addClass('visible');
-      $(this).dequeue();
-    })
-    .delay(delayTime)
-    .queue(function () {
-      $screenHeader.find('.copy:nth-child(3)').addClass('visible');
-      $(this).dequeue();
-    })
-    .delay(delayTime)
-    .queue(function () {
-      $screenHeader.find('.copy:nth-child(4)').addClass('visible');
-      $(this).dequeue();
-    })
-    .delay(delayTime)
-    .queue(function () {
-      $screenHeader.find('.copy:nth-child(5)').addClass('visible');
-      $(this).dequeue();
-    })
-    .delay(delayTime)
-    .queue(function () {
-      $screenHeader.find('.copy:nth-child(6)').addClass('visible');
-      $(this).dequeue();
-    })
-    .delay(delayTime)
-    .queue(function () {
-      $screenHeader.find('.copy:nth-child(7)').addClass('visible');
-      $(this).dequeue();
-    })
-    .delay(delayTime);
+    var delayTime = 1500,
+        $screenHeader = $('#screen-'+screenIndex+' header'),
+        $copyChildren = $screenHeader.children('.copy');
 
-    console.log($screenHeader.queue());
-
-    $screenHeader.promise().done(function() {
-      $('#next-btn').addClass('visible');
+    $copyChildren.each(function () {
+      var child = $(this);
+      $screenHeader.queue(function () {
+        child.addClass('visible');
+        $screenHeader.dequeue();
+      }).delay(delayTime); 
     });
 
     if (screenIndex != 6) {
