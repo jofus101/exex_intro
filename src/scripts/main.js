@@ -48,6 +48,12 @@ util = {
     $screenHeader.promise().done(function() {
       $('#next-btn').addClass('visible');
     });
+
+    if (screenIndex != 6) {
+      $screenHeader.promise().done(function() {
+          $('#next-btn').addClass('visible');
+      });
+    }
   }
 },
 landing = {
