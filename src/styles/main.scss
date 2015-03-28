@@ -14,12 +14,77 @@ html, body {
   font-size: 1em;
 }
 
-.loading {
-  background-color: blue;
+
+// http://tympanus.net/codrops/2014/08/05/page-preloading-effect/
+@keyframes animInitialHeader {
+  from { 
+    opacity: 0; 
+    transform: translate3d(0,800px,0); 
+  }
+}
+
+@keyframes animLoadedHeader {
+  to { transform: translate3d(0,-100%,0); }
+}
+
+.ip-header {
+  background: #f1f1f1;
+  top: 0;
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 100;
+  z-index: 100;  
+  .ip-loader {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    opacity: 0;
+    cursor: default;
+    pointer-events: none;
+    opacity: 1;
+    animation: animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both;
+    animation-delay: 0.2s;
+    .ip-inner {
+      display: block;
+      margin: 0 auto;
+    }
+    svg path {
+      fill: none;
+      stroke-width: 6;
+      &.ip-loader-circlebg {
+        stroke: #ddd;
+      }
+      &.ip-loader-circle {
+        transition: stroke-dashoffset 0.2s;
+        stroke: #ef6e7e;
+      }
+    }
+  }
+  .loaded {
+    animation: animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards;
+  }
+}
+
+.loaded .ip-loader {
+  opacity: 1;
+}
+
+@keyframes animLoadedLogo {
+  to { 
+    transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1); 
+  }
+}
+
+.loaded .ip-loader {
+  animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes animLoadedLoader {
+  to { 
+    opacity: 0; 
+    transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1); 
+  }
 }
 
 .wrapper {

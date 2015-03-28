@@ -146,10 +146,26 @@ landing = {
 },
 loading = {
   init: function () {
+    var simulationFn = function(instance) {
+      var progress = 0,
+        header = $('.ip-header'),
+        interval = setInterval( function() {
+          progress = Math.min( progress + Math.random() * 0.1, 1 );
+          instance.setProgress( progress );
+          // reached the end
+          if( progress === 1 ) {
+            clearInterval( interval );
+            loading.end();
+          }
+        }, 100 );
+    };
 
+    var loader = new PathLoader($('#ip-loader-circle')[0]);
+    loader.setProgressFn(simulationFn);
   },
   end: function () {
-    $('.loading').fadeOut(160);
+    $('.ip-header').fadeOut(160);
+    landing.enter();
   }
 },
 firebase = {
