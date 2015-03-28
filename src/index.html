@@ -10,7 +10,11 @@
     <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
     <script src="assets/bv_js/modernizr-2.5.3.min.js"></script>
   </head>
-  <body>    
+  <body>
+
+    <div class="loading">
+        <h1 class="plus"></h1>
+    </div>
 
     <div class="wrapper">
         <div class="screen" id="screen-1" data-video="assets/vid/birdy.mp4">
@@ -107,5 +111,17 @@
     <script src="assets/js/jquery-1.8.1.min.js"></script> -->
 
     <script src="assets/js/main.js"></script>
+    <script>
+      $(function(){
+        landing.init();        
+        loading.init();
+        firebase.init();
+      });
+
+      $(window).load(function(){
+        loading.end();
+        landing.enter();
+      });
+    </script>
   </body>
 </html>
