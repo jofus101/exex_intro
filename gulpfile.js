@@ -36,7 +36,7 @@ gulp.task('copyMisc', function() {
   var fontStream = gulp.src('src/fonts/*.*')
   .pipe(gulp.dest('dist/assets/fonts'));
 
-  return merge(htmlStream, bvjsStream, fontStream);
+  return merge(bvjsStream, fontStream);
 });
 
 gulp.task('images', function() {
