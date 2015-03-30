@@ -1,11 +1,10 @@
 /* global Firebase: false */
 'use strict';
 
-var screenIndex = 1,
-util = {  
+var util = {  
   fadeInElements: function () {    
     var delayTime = 1500,
-        $screenHeader = $('#screen-'+screenIndex+' header'),
+        $screenHeader = $('#screen-'+window.screenIndex+' header'),
         $copyChildren = $screenHeader.children('.copy');
 
     $copyChildren.each(function () {
@@ -16,7 +15,7 @@ util = {
       }).delay(delayTime); 
     });
 
-    if (screenIndex != 6) {
+    if (window.screenIndex != 6) {
       $screenHeader.promise().done(function() {
           $('#next-btn').addClass('visible');
       });
@@ -32,6 +31,9 @@ landing = {
         isTouch = Modernizr.touch,
         $bigImage = $('.big-image'),
         $window = $(window);
+
+    //global initiation
+    window.screenIndex = 1;
 
     $('#next-btn').on('click', function(e) {
       e.preventDefault();
@@ -61,17 +63,17 @@ landing = {
 
       // Clean up old page stuff
       $('#next-btn').removeClass('visible');
-      $('#screen-'+screenIndex+' header').children().each(function () {
+      $('#screen-'+window.screenIndex+' header').children().each(function () {
         $(this).removeClass('visible');
       });
 
 
       // update video index, reset image opacity if starting over
-      if (screenIndex === numScreens) {
+      if (window.screenIndex === numScreens) {
         $bigImage.css('opacity', 1);
-        screenIndex = 1;
+        window.screenIndex = 1;
       } else {
-        screenIndex++;
+        window.screenIndex++;
       }
 
       if (!isTouch) {
@@ -81,18 +83,18 @@ landing = {
       //cute ternary Modernizer operator
       (Modernizr.csstransitions)?
         $('.wrapper').transit(
-          {'top':'-'+(100*(screenIndex-1))+'%'},
+          {'top':'-'+(100*(window.screenIndex-1))+'%'},
           transitionDur,
           onTransitionComplete):
         onTransitionComplete();
     }
 
     function onVideoLoaded() {
-      $('#screen-'+screenIndex).find('.big-image').transit({'opacity':0},500);
+      $('#screen-'+window.screenIndex).find('.big-image').transit({'opacity':0},500);
     }
 
     function showVideo() {
-      BV.show($('#screen-'+screenIndex).attr('data-video'),{ambient:true});
+      BV.show($('#screen-'+window.screenIndex).attr('data-video'),{ambient:true});
     }
 
     function onTransitionComplete() {
@@ -139,8 +141,7 @@ landing = {
     }
   },
   enter: function () {
-    // Fade in the text
-    
+    // Fade in the text    
     util.fadeInElements();
   }
 },
@@ -150,12 +151,12 @@ loading = {
       var progress = 0,
         header = $('.ip-header'),
         interval = setInterval( function() {
-          progress = Math.min( progress + Math.random() * 0.1, 1 );
+          progress = progress+.05;//Math.min( progress + Math.random() * 0.1, 1 );
           instance.setProgress( progress );
           // reached the end
-          if( progress === 1 ) {
+          if ( window.loaded === true && progress >= 2 ) {            
             clearInterval( interval );
-            loading.end();
+            loading.end();            
           }
         }, 100 );
     };
